@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ImpactaIA</title>
+</head>
+<body>
+    <h1>ImpactaIA</h1>
+    <input type="text" id="user_message" placeholder="Digite algo...">
+    <button onclick="sendMessage()">Enviar</button>
+    <div id="response"></div>
+
+    <script>
+        async function sendMessage() {
+            const msg = document.getElementById("user_message").value;
+            const res = await fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: msg })
+            });
+
+            const data = await res.json();
+            document.getElementById("response").innerText = data.response;
+        }
+    </script>
+</body>
+</html>
