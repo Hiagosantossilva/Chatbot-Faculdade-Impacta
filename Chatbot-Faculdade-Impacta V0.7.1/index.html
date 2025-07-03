@@ -31,37 +31,9 @@
     </div>
     
 </main>
-  
+  <script src="scripts.js"></script>
 
-  <script>
-    async function enviar() {
-      const mensagem = document.getElementById("mensagem").value;
-      const respostaEl = document.getElementById("resposta");
-
-      respostaEl.textContent = "Pensando...";
-
-      try {
-        const res = await fetch("/api/chat", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ message: mensagem })
-        });
-
-        const data = await res.json();
-
-        if (data.reply) {
-          respostaEl.textContent = data.reply;
-        } else {
-          respostaEl.textContent = "Erro: resposta vazia.";
-        }
-      } catch (error) {
-        respostaEl.textContent = "Erro ao se comunicar com o servidor.";
-        console.error(error);
-      }
-    }
-  </script></body>
+</body>
   <footer>
     <div class="FooterContainer">
         <p> ChatBot versão 0.7 - Desenvolvido por Hiago Santos Silva</p>
