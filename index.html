@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
+    <meta name="theme-color" content="#f4f6fc">
+    <title>ChatBot Impacta</title>
+    <link rel="icon" type="image/png" href="Design/Imagens/BotMenor.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Design/style.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+<main class="chat" aria-label="ChatBot Impacta">
+    <div class="chat-actions">
+        <button id="nova-conversa" class="new-chat" type="button" aria-label="Iniciar nova conversa" title="Iniciar nova conversa">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+            <span>Nova conversa</span>
+        </button>
+    </div>
+    <section id="conversa" class="conversation" role="log" aria-label="Mensagens da conversa" aria-live="polite" aria-relevant="additions text" tabindex="0">
+        <div id="boas-vindas" class="welcome">
+            <div class="welcome-avatar"><img src="Design/Imagens/Bot.png" alt="" width="86" height="106"></div>
+            <span class="eyebrow">BEM-VINDO AO CHATBOT IMPACTA</span>
+            <h1>O que vamos aprender hoje?</h1>
+            <p>Tire uma dúvida, explore uma ideia ou encontre<br class="desktop-break"> um novo jeito de entender um assunto.</p>
+            <div class="suggestions" aria-label="Sugestões para começar">
+                <button type="button" data-suggestion="Como posso organizar melhor meus estudos?"><span aria-hidden="true">📚</span> Organizar meus estudos</button>
+                <button type="button" data-suggestion="Explique o que é um algoritmo com um exemplo simples."><span aria-hidden="true">💡</span> Entender um conceito</button>
+                <button type="button" data-suggestion="Sugira um exercício de programação para iniciantes."><span aria-hidden="true">💻</span> Praticar programação</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="composer-area">
+        <form id="form-mensagem" class="composer">
+            <label for="mensagem" class="sr-only">Sua mensagem</label>
+            <textarea id="mensagem" rows="1" maxlength="1200" placeholder="Escreva sua mensagem…" aria-describedby="dica-envio limite-aviso" enterkeyhint="enter"></textarea>
+            <button id="enviar" class="send-button" type="submit" aria-label="Enviar mensagem" disabled>
+                <span>Enviar</span>
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m5 12 14-7-4 14-3-7-7 0ZM12 12l7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+        </form>
+        <div class="composer-meta">
+            <p id="dica-envio"><span class="desktop-hint"><kbd>Enter</kbd> envia · <kbd>Shift + Enter</kbd> quebra a linha</span><span class="mobile-hint">Toque na seta para enviar sua mensagem.</span></p>
+            <span id="contador" aria-hidden="true">0 / 1.200</span>
+        </div>
+        <p id="limite-aviso" class="limit-notice" hidden></p>
+        <p id="resposta" class="sr-only" role="status" aria-live="polite"></p>
+    </div>
+</main>
+<footer class="page-footer">Desenvolvido por <span>Hiago Santos Silva</span><span class="footer-divider" aria-hidden="true">·</span>ChatBot Impacta <span class="version">v1.0</span></footer>
+</body>
+</html>

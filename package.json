@@ -1,0 +1,31 @@
+{
+  "name": "chatbot-impacta",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/server.js",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "npm run build:public && tsx server.ts",
+    "build:public": "node tools/build-public.mjs",
+    "build": "tsc && npm run build:public",
+    "start": "node dist/server.js",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "check": "tsc --noEmit",
+    "chat:smoke": "tsx app.ts"
+  },
+  "keywords": [],
+  "author": "Hiago Santos Silva",
+  "license": "ISC",
+  "description": "Chatbot Impacta com histórico, fallback entre modelos e proteção de uso.",
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "@vercel/node": "^5.3.2",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.3"
+  }
+}
