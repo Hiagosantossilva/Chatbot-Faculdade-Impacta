@@ -76,12 +76,12 @@ As instâncias compartilham contadores por operações Lua atômicas. Sem Redis 
 
 ## Deploy na Vercel
 
-1. Importe o repositório e use a **raiz do repositório** como Root Directory (`.`), com Framework Preset **Other** e Node.js 22 ou superior.
+1. Importe o repositório e use a **raiz do repositório** como Root Directory (deixe o campo vazio), com Framework Preset **Other** e Node.js 22 ou superior. Em projetos já existentes, abra **Settings → Build and Deployment → Root Directory**, remova o caminho da versão antiga e salve. A versão 1.0 mantém o `package.json` na raiz.
 2. Em **Settings → Environment Variables**, cadastre `GROQ_API_KEY`, `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` e `RATE_LIMIT_SECRET`.
 3. Cadastre `OPENROUTER_API_KEY` se quiser reserva em outro provedor. Os modelos e limites têm os padrões de `.env.example`.
 4. Faça o deploy. O `vercel.json` define o build, publica somente `public/` e mantém `/api/chat` como função de servidor com duração máxima de 60 segundos.
 
-Não configure `PORT` na Vercel. Alterações nas variáveis exigem novo deploy. Em outro host Node, execute `npm ci`, `npm run build` e `npm start`, com as variáveis configuradas no painel.
+Não configure `PORT` na Vercel. Alterações no Root Directory ou nas variáveis exigem novo deploy. Se aparecer `The specified Root Directory "Chatbot-Faculdade-Impacta-V0.7.1" does not exist`, corrija o campo no painel e faça um novo deploy do commit da versão 1.0; essa configuração pertence ao projeto na Vercel, não ao `vercel.json`. Em outro host Node, execute `npm ci`, `npm run build` e `npm start`, com as variáveis configuradas no painel.
 
 ## Desenvolvimento e validação
 
